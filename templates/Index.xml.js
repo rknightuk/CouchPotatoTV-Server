@@ -11,6 +11,9 @@ var Template = function() { return `<?xml version="1.0" encoding="UTF-8" ?>
       <menuItem template="${this.BASEURL}templates/Search.xml.js" presentation="menuBarItemPresenter">
         <title>Search</title>
       </menuItem>
+      <menuItem template="${this.BASEURL}notifications.php" presentation="menuBarItemPresenter">
+        <title>Notifications</title>
+      </menuItem>
     </menuBar>
   </menuBarTemplate>
 </document>`
