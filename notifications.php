@@ -10,8 +10,8 @@ $notifications = object_to_array($notifications);
 $template = '';
 if ( ! $notifications['empty']) {
 
-	foreach ($notifications['notifications'] as $not) {
-		$template .= '<title>' . $not['message'] .'</title>';
+	foreach (array_reverse($notifications['notifications']) as $not) {
+		$template .= '<listItemLockup><title>' . $not['message'] .'</title></listItemLockup>';
 	}
 }
 
@@ -23,9 +23,7 @@ $template = '<?xml version="1.0" encoding="UTF-8" ?>
 		   </banner>
 		   <list>
 		      <section>
-		         <listItemLockup>
-		            <title>' . $template . '</title>
-		         </listItemLockup>
+	            ' . $template . '
 		      </section>
 		   </list>
 		</listTemplate>
