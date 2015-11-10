@@ -1,5 +1,7 @@
 <?php
 
+include 'posterFetcher.php';
+
 function object_to_array($data)
 {
 	if (is_array($data) || is_object($data))
@@ -38,14 +40,8 @@ function generateMovieElements($movies, $markAsDone = false, $addToWanted = fals
 		else {
 			$elements .= '<lockup>';
 		}
-
-		$poster =  $movie['info']['images']['poster'][0];
-
-		if ($poster == 'https://image.tmdb.org/t/p/w154None') {
-			$poster =  $clientDomain . '/noPoster.png';
-		}
-
-		// $poster = $movie['info']['images']['poster'][0] == 'https://image.tmdb.org/t/p/w154None' ? '../resources/noPoster.png' : $movie['info']['images']['poster'][0];
+		
+		$poster = getPoster($movie);
 
 		$elements .= '
 				<img src="' . htmlentities($poster) . '" width="300" height="452"/>
