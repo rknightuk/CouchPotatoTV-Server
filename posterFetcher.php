@@ -9,7 +9,7 @@ function getPoster($movie) {
 	if (file_exists($path)) return $clientDomain . '/' . $path;
 
 	$title = $movie['info']['original_title'];
-	$cover = @file_get_contents('http://lsrdb.com/search?title=' . urlencode($title));
+	$cover = @file_get_contents('http://lsrdb.com/search?title=' . urlencode($title) . '&year=' . $movie['info']['year']);
 
 	if ($cover) {
 		file_put_contents($path, $cover);
